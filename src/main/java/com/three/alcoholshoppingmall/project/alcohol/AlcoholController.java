@@ -42,7 +42,7 @@ public class AlcoholController {
     @PostMapping("/name")
     @Operation(summary = "이름으로 검색, 검색을 완료하지 않아도 내용이 나오게 만들었습니다.", description = "이름으로 주류 검색 필터")
     public List<Alcohol> selectByName(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository.findByNameContaining(alcoholDto.getName());
+        List<Alcohol> list = alcoholRepository.findByNameContaining(alcoholDto.getAlcohol_name());
         return list;
     }
 

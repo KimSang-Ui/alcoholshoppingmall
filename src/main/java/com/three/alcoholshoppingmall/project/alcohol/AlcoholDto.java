@@ -9,13 +9,13 @@ import lombok.ToString;
 @ToString
 public class AlcoholDto {
 
-    private Long index;
 
-    private String name;
+    private Long id;
+
+    private String alcohol_name;
 
     private String maincategory;
 
     private String subcategory;
-
 
 }

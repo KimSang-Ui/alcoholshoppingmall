@@ -5,12 +5,14 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 @Entity
 @Table(name = "alcohol")
 @Schema(description = "alcohol 테이블에 대한 내용입니다.")
 public class Alcohol {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(title = "술 ID", description = "table에서 자동으로 생성되는 칼럼입니다.")
@@ -21,6 +23,7 @@ public class Alcohol {
     // 3. 검색한 내용이 최근 검색에 기록이 되어야 한다
     @Schema(title = "술 이름", description = "술 이름을 넣어주시면 됩니다.")
     private String name;
+
     @Schema(title = "술 대분류", description = "술의 대분류를 넣어주시면 됩니다.")
     private String maincategory;
     @Schema(title = "술 소분류", description = "술의 소분류를 넣어주시면 됩니다.")

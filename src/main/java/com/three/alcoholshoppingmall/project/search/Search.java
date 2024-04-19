@@ -22,13 +22,13 @@ public class Search {
     @Schema(title = "회원 이메일", description = "회원의 이메일을 넣는 조인된 칼럼입니다.")
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "user_email", referencedColumnName = "email")
     private User user;
 
     @Schema(title = "술 이름", description = "술 이름을 넣는 조인된 칼럼입니다.")
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "alcohol_name", referencedColumnName = "name")
     private Alcohol alcohol;
 
     @Schema(title = "검색내용", description = "검색 내용을 입력하는 칼럼입니다.")

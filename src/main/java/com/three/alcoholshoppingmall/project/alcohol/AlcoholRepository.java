@@ -13,7 +13,6 @@ public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
 
     List<Alcohol> findBySubcategory(String subcategory); // 소분류로 주류 검색하기(필터)
 
-//    @Query(value = "select name from Alcohol")
     List<Alcohol> findByNameContaining(String name);
 
     // 이름으로 주류 검색하기(필터)
