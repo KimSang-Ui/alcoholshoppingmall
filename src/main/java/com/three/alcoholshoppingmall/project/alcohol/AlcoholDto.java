@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 public class AlcoholDto {
 
-    private Long index;
+    private Long id;
 
-    private String name;
+    private String alcohol_name;
 
     private String maincategory;
 

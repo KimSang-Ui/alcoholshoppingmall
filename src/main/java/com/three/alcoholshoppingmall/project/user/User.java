@@ -20,6 +20,7 @@ public class User {
     private Long id;
 
     @Schema(title = "회원 Email", description = "회원 email을 넣어줍니다.")
+    @Column(unique = true)
     private String email;
 
 }
