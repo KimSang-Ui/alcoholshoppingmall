@@ -10,12 +10,11 @@ import lombok.ToString;
 public class AlcoholDto {
 
 
-    private Long id;
-
-    private String alcohol_name;
+    private String name;
 
     private String maincategory;
 
     private String subcategory;
+
 
 }

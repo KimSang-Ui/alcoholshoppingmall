@@ -21,6 +21,6 @@ public class User {
 
     @Schema(title = "회원 Email", description = "회원 email을 넣어줍니다.")
     @Column(unique = true)
-    private String user_email;
+    private String email;
 
 }
