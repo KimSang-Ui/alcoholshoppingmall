@@ -41,9 +41,3 @@ INSERT INTO alcohol (`name`, `maincategory`, `subcategory`, `content`, `aroma`, 
 	('납 크릭 750ml', '위스키', '버번', 50, '견과류, 몰트, 과일', '오크, 달콤한, 스파이시', '풍부한, 긴 여운, 부드러운', '미국', _binary 0x433a5c55736572735c6e5c4465736b746f705c616c636f686f6c5c3339),
 	('이글 레어 10년 750ml', '위스키', '버번', 45, '토피, 오렌지 껍질, 허브, 꿀, 가죽', '오크, 설탕, 코팅된 아몬드, 코코아', '긴 여운, 드라이한, 바닐라, 레드 커런트', '미국', _binary 0x433a5c55736572735c6e5c4465736b746f705c616c636f686f6c5c3430),
 	('노아스 밀 750ml', '위스키', '버번', 57.15, '바닐라, 스파이스, 시나몬, 캐러멜, 풀', '민트, 바닐라, 시나몬, 옥수수, 풀내음', '오크, 긴 내음', '미국', _binary 0x433a5c55736572735c6e5c4465736b746f705c616c636f686f6c5c3431);
-
---	INSERT INTO search (`email`, `name`, `searchcontents`) VALUES
---	('aaa@naver.com', '벤리악 12년 700ml','벤리');
---
---	insert into user (`email`) values
---	('aaa@naver.com');
