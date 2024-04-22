@@ -56,5 +56,3 @@ public class User {
     @Schema(title = "modifiedDate", description = "회원 정보수정일자 입니다.")
     private LocalDate modifiedDate;
 }
-
-
