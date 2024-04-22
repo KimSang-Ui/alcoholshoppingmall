@@ -1,4 +1,4 @@
-package com.three.alcoholshoppingmall.project.review;
+package com.three.alcoholshoppingmall.project.alcohol;
 
 
 import com.three.alcoholshoppingmall.project.alcohol.Alcohol;

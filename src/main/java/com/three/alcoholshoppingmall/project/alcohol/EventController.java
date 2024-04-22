@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/event")
-@Tag(name = "event", description = "주간 판매정보를 토대로 인기상품을 보여 줍니다.")
+@Tag(name = "event", description = "이벤트 페이지 입니다.")
 public class EventController {
 
     private final Eventservice eventservice;
