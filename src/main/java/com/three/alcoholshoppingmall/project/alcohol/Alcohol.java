@@ -1,23 +1,21 @@
-<<<<<<< HEAD:src/main/java/com/three/alcoholshoppingmall/project/main/Information.java
-package com.three.alcoholshoppingmall.project.main;
-=======
 package com.three.alcoholshoppingmall.project.alcohol;
->>>>>>> main:src/main/java/com/three/alcoholshoppingmall/project/alcohol/Information.java
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Schema(description = "메인 페이지용 정보저장 클래스")
-public class Information {
+@Entity
+@Table(name = "alcohol")
+@Schema(description = "alcohol 테이블에 대한 내용입니다.")
+public class Alcohol {
 
-
-    @Schema(title = "주류 ID", description = "주류의 KEY값 입니다.")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(title = "주류 ID", description = "table에서 자동으로 생성되는 칼럼입니다.")
     private Long id;
 
     @Schema(title = "주류 이름", description = "주류 이름을 넣어주시면 됩니다.")
@@ -44,25 +42,8 @@ public class Information {
     @Schema(title = "주류 국가", description = "주류의 국가를 넣어주시면 됩니다.")
     private String nation;
 
-    @Schema(title = "주류 사진", description = "주류의 사진을 넣어주시면 됩니다.")
+    @Schema(title = "주류 사진", description = " 주류의 사진을 넣어주시면 됩니다.")
     private String picture;
-
-    @Schema(title = "주류의 평점", description = "주류의 총평점 입니다.")
-    private double grade;
-
-    @Schema(title = "주류의 가격", description = "주류의 가격 입니다.")
-    private int price;
-
-    @Schema(title = "주류의 총 재고량", description = "주류의 총 재고량 입니다.")
-    private int amount;
-
-
-
-
-
-
-
-
 
 
 }

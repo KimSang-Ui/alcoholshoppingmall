@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/main/java/com/three/alcoholshoppingmall/project/main/DetailInformation.java
 package com.three.alcoholshoppingmall.project.main;
+=======
+package com.three.alcoholshoppingmall.project.alcohol;
+>>>>>>> main:src/main/java/com/three/alcoholshoppingmall/project/alcohol/DetailInformation.java
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -9,7 +13,11 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+<<<<<<< HEAD:src/main/java/com/three/alcoholshoppingmall/project/main/DetailInformation.java
 @Schema(description = "메인 페이지용 정보저장 클래스")
+=======
+@Schema(description = "상세 페이지용 정보저장 클래스")
+>>>>>>> main:src/main/java/com/three/alcoholshoppingmall/project/alcohol/DetailInformation.java
 public class DetailInformation {
 
 
