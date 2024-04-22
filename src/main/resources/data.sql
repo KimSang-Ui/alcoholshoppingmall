@@ -67,15 +67,14 @@ INSERT INTO `favorites` ( `email`, `name`) VALUES
                                                ( 'aaa@naver.com', '짐빔 화이트 750ml'),
                                                ( 'ddd@naver.com', '짐빔 화이트 750ml');
 
-
-INSERT INTO `purchase` (`price`, `purchaseday`, `address`, `email`, `marketname`, `name`, `order_number`, `division`,  `ordertype`) VALUES
-                                                                                                                                        (45000, '2024-04-20',  '대구', 'aaa@naver.com', '대구', '발렌타인 마스터즈 700ml', '1', 'BUY',  'PICKUP'),
-                                                                                                                                        (45000, '2024-04-20',  '대구', 'aaa@naver.com', '대구', '빅 피트 700ml', '2', 'BUY',  'DELIVERY'),
-                                                                                                                                        (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '헤네시 XO 700ml', '3', 'BUY',  'DELIVERY'),
-                                                                                                                                        (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '헤네시 XO 700ml', '4', 'RETURN',  'DELIVERY'),
-                                                                                                                                        (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '달모어 12년 700ml', '5', 'BUY',  'PICKUP'),
-                                                                                                                                        (45000, '2024-04-20',  '대구', 'aba@naver.com', '대구', '발렌타인 마스터즈 700ml', '1', 'RETURN',  'PICKUP'),
-                                                                                                                                        (55000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY'),
-                                                                                                                                        (55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY'),
-                                                                                                                                        (55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY'),
-                                                                                                                                        ( 55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '발렌타인 마스터즈 700ml', '5', 'RETURN',  'DELIVERY');
+INSERT INTO `purchase` (`price`, `purchaseday`, `address`, `email`, `marketname`, `name`, `order_number`, `division`,  `ordertype`, `amount`) VALUES
+                                                                                                                                                  (45000, '2024-04-20',  '대구', 'aaa@naver.com', '대구', '발렌타인 마스터즈 700ml', '1', 'BUY',  'PICKUP',5),
+                                                                                                                                                  (45000, '2024-04-20',  '대구', 'aaa@naver.com', '대구', '빅 피트 700ml', '2', 'BUY',  'DELIVERY',6),
+                                                                                                                                                  (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '헤네시 XO 700ml', '3', 'BUY',  'DELIVERY',7),
+                                                                                                                                                  (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '헤네시 XO 700ml', '4', 'RETURN',  'DELIVERY',6),
+                                                                                                                                                  (45000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '달모어 12년 700ml', '5', 'BUY',  'PICKUP',5),
+                                                                                                                                                  (45000, '2024-04-20',  '대구', 'aba@naver.com', '대구', '발렌타인 마스터즈 700ml', '1', 'RETURN',  'PICKUP',4),
+                                                                                                                                                  (55000, '2024-04-21',  '대구', 'aaa@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY',5),
+                                                                                                                                                  (55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY',6),
+                                                                                                                                                  (55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '달모어 12년 700ml', '5', 'RETURN', 'DELIVERY',6),
+                                                                                                                                                  ( 55000, '2024-04-21',  '대구', 'aba@naver.com', '대구', '발렌타인 마스터즈 700ml', '5', 'RETURN',  'DELIVERY',7);

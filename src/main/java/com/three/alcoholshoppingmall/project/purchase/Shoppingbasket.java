@@ -34,6 +34,8 @@ public class Shoppingbasket {
     @Schema(title = "address", description = "회원의 주소 입니다.")
     private String address;
 
+    @Schema(title = "amount", description = "해당 물품의 구매 수량입니다.")
+    private  int amount;
 
 
 }

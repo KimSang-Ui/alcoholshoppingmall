@@ -11,14 +11,21 @@ import java.util.List;
 @Repository
 public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
 
-
-    @Query(value = "SELECT a.* FROM alcohol a INNER JOIN (SELECT name, COUNT(*) AS cnt FROM purchase WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY'GROUP BY NAME ORDER BY cnt DESC LIMIT 8) b ON a.name = b.name ORDER BY b.cnt DESC", nativeQuery = true)
+    //가장 많이 팔린 술 8개
+    @Query(value = "SELECT a.* FROM alcohol a\n" +
+            "LEFT JOIN ( SELECT name, SUM(amount) AS total_amount\n" +
+            "FROM purchase WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY'\n" +
+            "GROUP BY name) p ON a.name = p.name\n" +
+            "ORDER BY COALESCE(p.total_amount, 0) DESC, a.id LIMIT 8", nativeQuery = true)
     List<Alcohol> mostsold();
 
-    @Query(value = "SELECT a.* FROM alcohol a INNER JOIN (SELECT name FROM purchase WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY'  GROUP BY name) b ON a.name = b.name WHERE a.maincategory = :maincategory ORDER BY a.name LIMIT 5", nativeQuery = true)
+    @Query(value = "SELECT a.* FROM alcohol a LEFT JOIN ( SELECT name, SUM(amount) AS total_amount FROM purchase\n" +
+            "WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY' AND maincategory = :maincategory\n" +
+            "GROUP BY NAME ) p ON a.name = p.name\n" +
+            "ORDER BY COALESCE(p.total_amount, 0) DESC, a.id LIMIT 8", nativeQuery = true)
     List<Alcohol> most(String maincategory);
 
-    @Query(value = "SELECT * FROM alcohol ORDER BY Id DESC LIMIT 5", nativeQuery = true)
+    @Query(value = "SELECT * FROM alcohol ORDER BY Id DESC LIMIT 8", nativeQuery = true)
     List<Alcohol> newproduct(); //신제품
 
 
