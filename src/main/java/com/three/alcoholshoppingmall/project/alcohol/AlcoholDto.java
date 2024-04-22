@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class AlcoholDto {
 
-    private Long index;
+    private Long id;
 
     private String name;
 

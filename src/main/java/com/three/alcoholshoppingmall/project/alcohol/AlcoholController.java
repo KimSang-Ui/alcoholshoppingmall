@@ -1,56 +1,57 @@
 package com.three.alcoholshoppingmall.project.alcohol;
 
+
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/alcohol")
-@Tag(name = "AlcoholController", description = "주류 필터 검색")
 @RequiredArgsConstructor
+@RequestMapping("/main")
+@Tag(name = "main", description = "메인 페이지 입니다.")
 public class AlcoholController {
 
-    private final AlcoholRepository alcoholRepository;
+    private final AlcoholService alcoholService;
 
-    @PostMapping("/maincategory")
-    @Operation(summary = "대분류 검색입니다.", description = "대분류로 주류 검색 필터")
-    public List<Alcohol> selectByMainCategory(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository.findByMaincategory(alcoholDto.getMaincategory());
-        return list;
+
+    @PostMapping("/mainpage")
+    @Operation(summary = "메인 페이지 정보")
+    public ResponseEntity<List<Information>> MainPage(){
+
+        List<Information> list = alcoholService.Page();
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
+    }
+
+    @PostMapping("/detail")
+    @Operation(summary = "상세 페이지 정보")
+    public ResponseEntity<List<DetailInformation>> Detail(@RequestBody Alcohol alcohol){
+
+        List<DetailInformation> list = alcoholService.DetailPage(alcohol.getName());
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
 
-    @PostMapping("/subcategory")
-    @Operation(summary = "소분류 검색입니다.", description = "소분류로 주류 검색 필터")
-    public List<Alcohol> selectBySubCategory(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository.findBySubcategory(alcoholDto.getSubcategory());
-        return list;
+    @PostMapping("/sort")
+    @Operation(summary = "정렬 인기 최고가격 최소가격으로 정렬 입력 값이 없으면 최소 가격으로")
+    public ResponseEntity<List<DetailInformation>> Sort(@RequestBody String tag){
+
+        List<DetailInformation> list = alcoholService.SortType(tag);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-    @PostMapping("/mycustom")
-    @Operation(summary = "대분류와 소분류로 검색, .", description = "대분류와 소분류 db 내용과 일치 시 검색필터")
-    public List<Alcohol> selectByMyCustom(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository
-                .findByMyCustom(alcoholDto.getMaincategory(),
-                        alcoholDto.getSubcategory());
-        return list;
-    }
 
-    @PostMapping("/name")
-    @Operation(summary = "이름으로 검색, 검색을 완료하지 않아도 내용이 나오게 만들었습니다.", description = "이름으로 주류 검색 필터")
-    public List<Alcohol> selectByName(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository.findByNameContaining(alcoholDto.getName());
-        return list;
-    }
 
-    @PostMapping("/selectSubcategory")
-    @Operation(summary = "대분류를 통해 소분류를 검색합니다.", description = "대분류를 통해 소분류를 검색")
-    public List<String> selectSubcategory(@RequestBody AlcoholDto alcoholDto) {
-        List<String> list = alcoholRepository.findSubcategoryByMaincategory(alcoholDto.getMaincategory());
-        return list;
-    }
 
 }
