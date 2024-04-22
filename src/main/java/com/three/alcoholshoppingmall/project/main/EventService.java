@@ -1,7 +1,9 @@
-package com.three.alcoholshoppingmall.project.main;
+package com.three.alcoholshoppingmall.project.alcohol;
 
 
-import com.three.alcoholshoppingmall.project.entity.Alcohol;
+
+
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
