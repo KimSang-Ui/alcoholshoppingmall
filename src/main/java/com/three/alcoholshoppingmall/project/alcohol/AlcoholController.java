@@ -2,6 +2,7 @@ package com.three.alcoholshoppingmall.project.alcohol;
 
 
 
+import com.three.alcoholshoppingmall.project.purchase.PurchaseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,6 @@ public class AlcoholController {
 
     private final AlcoholService alcoholService;
 
-
     @PostMapping("/mainpage")
     @Operation(summary = "메인 페이지 정보")
     public ResponseEntity<List<Information>> MainPage(){
@@ -41,7 +41,6 @@ public class AlcoholController {
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-
     @PostMapping("/sort")
     @Operation(summary = "정렬 인기 최고가격 최소가격으로 정렬 입력 값이 없으면 최소 가격으로")
     public ResponseEntity<List<DetailInformation>> Sort(@RequestBody String tag){
@@ -50,7 +49,14 @@ public class AlcoholController {
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
+    @PostMapping("/algorithm")
+    @Operation(summary = "내 알고리즘")
+    public ResponseEntity<List<Alcohol>> MemberAlgorithm(@RequestBody PurchaseDTO purchaseDTO){
 
+        List<Alcohol> list = alcoholService.Algorithm(purchaseDTO.getEmail());
+
+        return ResponseEntity.status(HttpStatus.OK).body(list);
+    }
 
 
 

@@ -5,12 +5,15 @@ package com.three.alcoholshoppingmall.project.alcohol;
 import com.three.alcoholshoppingmall.project.favorites.Favorites;
 import com.three.alcoholshoppingmall.project.favorites.FavoritesDTO;
 import com.three.alcoholshoppingmall.project.favorites.FavoritesRepository;
+import com.three.alcoholshoppingmall.project.purchase.Purchase;
+import com.three.alcoholshoppingmall.project.purchase.PurchaseRepository;
 import com.three.alcoholshoppingmall.project.review.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -21,7 +24,8 @@ public class AlcoholService {
     private final AlcoholRepository alcoholRepository;
     private final FavoritesRepository favoritesRepository;
     private final ReviewRepository reviewRepository;
-
+    private final AlgorithmRepository algorithmRepository;
+    private final PurchaseRepository purchaseRepository;
 
     public List<Information> Page() {
         List<Double> rating = alcoholRepository.Ratingaverage();
@@ -101,12 +105,12 @@ public class AlcoholService {
         List<Integer> prices;
         List<Integer> reviewCount;
 
-        if(tag.equals("인기")) {
+        if (tag.equals("인기")) {
             alcohols = alcoholRepository.pop();
             ratings = alcoholRepository.popratings();
             prices = alcoholRepository.popprices();
             reviewCount = alcoholRepository.popreviewCount();
-        } else if(tag.equals("최고")) {
+        } else if (tag.equals("최고")) {
             alcohols = alcoholRepository.max();
             ratings = alcoholRepository.maxratings();
             prices = alcoholRepository.maxprices();
@@ -143,11 +147,28 @@ public class AlcoholService {
                     .build();
 
 
-
             list.add(info);
         }
 
         return list;
     }
 
+    public List<Alcohol> Algorithm(String email) {
+
+        Optional<Purchase> check = purchaseRepository.findByEmail(email);
+
+        if (check.isPresent()) {
+            String category = algorithmRepository.Category(email);
+            String aroma = algorithmRepository.Aroma(email);
+            String taste = algorithmRepository.Taste(email);
+            String finish = algorithmRepository.Finish(email);
+
+            List<Alcohol> list = algorithmRepository.personalalgorithm(category, aroma, taste, finish);
+
+            return list;
+        } else {
+            List<Alcohol> list = alcoholRepository.mostsold();
+            return list;
+        }
+    }
 }
