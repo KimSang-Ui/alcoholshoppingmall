@@ -11,29 +11,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class Eventservice {
+public class EventService {
 
-    private final AlcoholRepository alcoholRepository;
+    private final EventRepository eventRepository;
 
-    //가장 많이 팔린 술 8개
-    public List<Alcohol> Most() {
-        List<Alcohol> list = alcoholRepository.mostsold();
-
-        return list;
-    }
-
-    public List<Alcohol> Mostcategory(String maincategory) {
-
-            List<Alcohol> list = alcoholRepository.most(maincategory);
-
-            return list;
-        }
 
     public List<Alcohol> Product() {
-        List<Alcohol> list =  alcoholRepository.newproduct();
+        List<Alcohol> list = eventRepository.newproduct();
 
         return list;
     }
-
 
 }
