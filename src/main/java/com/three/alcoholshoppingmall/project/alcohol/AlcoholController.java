@@ -23,7 +23,6 @@ public class AlcoholController {
 
     private final AlcoholService alcoholService;
 
-
     @PostMapping("/mainpage")
     @Operation(summary = "메인 페이지 정보")
     public ResponseEntity<List<Information>> MainPage(){
@@ -42,14 +41,33 @@ public class AlcoholController {
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-    @PostMapping("/sort")
-    @Operation(summary = "정렬 인기 최고가격 최소가격으로 정렬 입력 값이 없으면 최소 가격으로")
-    public ResponseEntity<List<DetailInformation>> Sort(@RequestBody String tag){
-
-        List<DetailInformation> list = alcoholService.SortType(tag);
+    @PostMapping("/pop")
+    @Operation(summary = "인기 정렬")
+    public ResponseEntity<List<DetailInformation>> Pop(){
+        String Type = "인기";
+        List<DetailInformation> list = alcoholService.SortType(Type);
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
+    @PostMapping("/max")
+    @Operation(summary = "가격 높은 순 정렬")
+    public ResponseEntity<List<DetailInformation>> Max(){
+        String Type = "최고";
+        List<DetailInformation> list = alcoholService.SortType(Type);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
+    }
+
+    @PostMapping("/min")
+    @Operation(summary = "가격 낮은 정렬")
+    public ResponseEntity<List<DetailInformation>> Min(){
+        String Type = "최소";
+        List<DetailInformation> list = alcoholService.SortType(Type);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
+    }
+    
+
     @PostMapping("/algorithm")
     @Operation(summary = "내 알고리즘")
     public ResponseEntity<List<Alcohol>> MemberAlgorithm(@RequestBody PurchaseDTO purchaseDTO){

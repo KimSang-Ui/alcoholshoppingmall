@@ -65,32 +65,35 @@ public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
 
     // 인기순
     @Query(value = "SELECT a.id, a.name, a.maincategory, a.subcategory, a.content, a.aroma, a.taste, a.finish, a.nation, a.picture " +
-            "FROM alcohol a LEFT JOIN (SELECT name, COUNT(*) AS purchase_count FROM purchase GROUP BY name) b ON a.name = b.name " +
-            "ORDER BY COALESCE(b.purchase_count, 0) DESC, a.id", nativeQuery = true)
+            "FROM alcohol a " +
+            "LEFT JOIN (SELECT name, SUM(amount) AS purchase_amount FROM purchase GROUP BY name) b ON a.name = b.name " +
+            "ORDER BY COALESCE(b.purchase_amount, 0) DESC, a.id ASC", nativeQuery = true)
     List<Alcohol> pop();
 
+    // 인기순 평점
     @Query(value = "SELECT COALESCE(AVG(r.grade), 0) AS avg_rating " +
             "FROM alcohol a " +
             "LEFT JOIN review r ON a.name = r.name " +
-            "LEFT JOIN (SELECT name, COUNT(*) AS purchase_count FROM purchase GROUP BY name) b ON a.name = b.name " +
+            "LEFT JOIN (SELECT name, SUM(amount) AS purchase_amount FROM purchase GROUP BY name) b ON a.name = b.name " +
             "GROUP BY a.id " +
-            "ORDER BY COALESCE(MAX(b.purchase_count), 0) DESC, a.id", nativeQuery = true)
+            "ORDER BY COALESCE(MAX(b.purchase_amount), 0) DESC, a.id ASC", nativeQuery = true)
     List<Double> popratings();
 
+    // 인기순 가격
     @Query(value = "SELECT COALESCE(MAX(b.price), 0) AS price " +
             "FROM alcohol a " +
-            "LEFT JOIN (SELECT name, MAX(price) AS price, COUNT(*) AS purchase_count FROM purchase GROUP BY name) b ON a.name = b.name " +
+            "LEFT JOIN (SELECT name, MAX(price) AS price, SUM(amount) AS purchase_amount FROM purchase GROUP BY name) b ON a.name = b.name " +
             "GROUP BY a.id " +
-            "ORDER BY COALESCE(MAX(b.purchase_count), 0) DESC, a.id", nativeQuery = true)
+            "ORDER BY COALESCE(MAX(b.purchase_amount), 0) DESC, a.id ASC", nativeQuery = true)
     List<Integer> popprices();
 
+    // 인기순 리뷰 갯수
     @Query(value = "SELECT COALESCE(COUNT(r.writing), 0) AS review_count " +
             "FROM alcohol a LEFT JOIN review r ON a.name = r.name " +
-            "LEFT JOIN (SELECT name, COUNT(*) AS purchase_count FROM purchase GROUP BY name) b ON a.name = b.name " +
+            "LEFT JOIN (SELECT name, SUM(amount) AS purchase_amount FROM purchase GROUP BY name) b ON a.name = b.name " +
             "GROUP BY a.id " +
-            "ORDER BY COALESCE(MAX(b.purchase_count), 0) DESC, a.id", nativeQuery = true)
+            "ORDER BY COALESCE(MAX(b.purchase_amount), 0) DESC, a.id ASC", nativeQuery = true)
     List<Integer> popreviewCount();
-
 
     // 최대 가격 순 정렬
     @Query(value = "SELECT a.id, a.name, a.maincategory, a.subcategory, a.content, a.aroma, a.taste, a.finish, a.nation, a.picture, COALESCE(MAX(b.price), 0) AS max_price\n" +

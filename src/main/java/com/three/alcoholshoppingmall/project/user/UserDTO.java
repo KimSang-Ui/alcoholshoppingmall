@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-public class UserDto {
     @Getter
     @Setter
     @ToString
@@ -50,4 +49,4 @@ public class UserDto {
 
 
     }
-}
+

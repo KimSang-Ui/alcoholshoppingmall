@@ -7,7 +7,6 @@ import com.three.alcoholshoppingmall.project.favorites.FavoritesDTO;
 import com.three.alcoholshoppingmall.project.favorites.FavoritesRepository;
 import com.three.alcoholshoppingmall.project.purchase.Purchase;
 import com.three.alcoholshoppingmall.project.purchase.PurchaseRepository;
-import com.three.alcoholshoppingmall.project.review.AlgorithmRepository;
 import com.three.alcoholshoppingmall.project.review.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -159,12 +158,11 @@ public class AlcoholService {
         Optional<Purchase> check = purchaseRepository.findByEmail(email);
 
         if (check.isPresent()) {
-            String category = algorithmRepository.Category(email);
             String aroma = algorithmRepository.Aroma(email);
             String taste = algorithmRepository.Taste(email);
             String finish = algorithmRepository.Finish(email);
 
-            List<Alcohol> list = algorithmRepository.personalalgorithm(category, aroma, taste, finish);
+            List<Alcohol> list = algorithmRepository.personalalgorithm( aroma, taste, finish);
 
             return list;
         } else {
