@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Time;
 import java.time.LocalTime;
 
 @Getter
@@ -35,8 +36,8 @@ public class Market {
     private Delivery delivery;
 
     @Schema(title = "영업시작 시간", description = "매장의 영업시작 시간 입니다.")
-    private LocalTime open;
+    private Time opentime;
 
     @Schema(title = "영업종료 시간", description = "매장의 영업종료 시간입니다.")
-    private LocalTime end;
+    private Time closetime;
 }

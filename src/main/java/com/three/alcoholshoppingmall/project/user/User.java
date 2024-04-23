@@ -3,14 +3,15 @@ package com.three.alcoholshoppingmall.project.user;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "user")
 @Schema(description = "user 테이블에 대한 내용입니다.")

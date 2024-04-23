@@ -1,5 +1,5 @@
 package com.three.alcoholshoppingmall.project.user;
 
-public enum WithdrawStatus {
-    Y,N
+public class LogOut {
+    // 로그아웃
 }
