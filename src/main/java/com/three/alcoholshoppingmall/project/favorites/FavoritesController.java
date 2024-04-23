@@ -6,10 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +17,7 @@ import java.util.List;
 public class FavoritesController {
 
 private final FavoritesService favoritesService;
-    @PostMapping("")
+    @PostMapping("/list")
     @Operation(summary = "즐겨찾기 목록")
     public ResponseEntity<List<Favorites>> FavoritesList(@RequestBody FavoritesDTO favoritesDTO){
 
@@ -28,13 +25,22 @@ private final FavoritesService favoritesService;
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
-    @PostMapping("/up")
+    @PostMapping("")
     @Operation(summary = "즐겨찾기 등록")
     public ResponseEntity<List<Favorites>> Favorites(@RequestBody FavoritesDTO favoritesDTO) {
-
 
         List<Favorites> list = favoritesService.Favorites(favoritesDTO);
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
+    @DeleteMapping("")
+    @Operation(summary = "즐겨찾기 삭제")
+    public ResponseEntity<List<Favorites>> FavoritesDelete(@RequestBody FavoritesDTO favoritesDTO) {
+
+        List<Favorites> list = favoritesService.FavoritesDelete(favoritesDTO);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
+    }
+
+    
 }
