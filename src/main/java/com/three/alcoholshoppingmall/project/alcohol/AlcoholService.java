@@ -61,12 +61,7 @@ public class AlcoholService {
         return list;
     }
 
-    public List<Favorites> Favorites(FavoritesDTO favoritesDTO) {
 
-        List<Favorites> list = favoritesRepository.MyFavorites(favoritesDTO.getEmail());
-
-        return list;
-    }
 
     public List<DetailInformation> DetailPage(String name) {
 

@@ -20,7 +20,6 @@ public class FavoritesService {
 
         return list;
     }
-
     public List<Favorites> Favorites(FavoritesDTO favoritesDTO) {
         Optional<Favorites> favor = favoritesFRepository.findByEmailAndName(favoritesDTO.getEmail(), favoritesDTO.getName());
         List<Favorites> list = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.three.alcoholshoppingmall.project.market;
+package com.three.alcoholshoppingmall.project.stock;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;

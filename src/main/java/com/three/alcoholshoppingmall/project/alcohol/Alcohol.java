@@ -42,7 +42,7 @@ public class Alcohol {
     @Schema(title = "주류 국가", description = "주류의 국가를 넣어주시면 됩니다.")
     private String nation;
 
-    @Schema(title = "주류 사진", description = " 주류의 사진을 넣어주시면 됩니다.")
+    @Schema(title = "주류 사진", description = "주류의 사진을 저장하는 필드입니다.")
     private String picture;
 
 

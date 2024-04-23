@@ -14,20 +14,19 @@ public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
     //가장 많이 팔린 술 8개
     @Query(value = "SELECT a.* FROM alcohol a\n" +
             "LEFT JOIN ( SELECT name, SUM(amount) AS total_amount\n" +
-            "FROM purchase WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY'\n" +
+            "FROM purchase WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW())" +
             "GROUP BY name) p ON a.name = p.name\n" +
             "ORDER BY COALESCE(p.total_amount, 0) DESC, a.id LIMIT 8", nativeQuery = true)
     List<Alcohol> mostsold();
 
     @Query(value = "SELECT a.* FROM alcohol a LEFT JOIN ( SELECT name, SUM(amount) AS total_amount FROM purchase\n" +
-            "WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND division = 'BUY' AND maincategory = :maincategory\n" +
+            "WHERE YEARWEEK(purchaseday) = YEARWEEK(NOW()) AND maincategory = :maincategory\n" +
             "GROUP BY NAME ) p ON a.name = p.name\n" +
             "ORDER BY COALESCE(p.total_amount, 0) DESC, a.id LIMIT 8", nativeQuery = true)
     List<Alcohol> most(String maincategory);
 
     @Query(value = "SELECT * FROM alcohol ORDER BY Id DESC LIMIT 8", nativeQuery = true)
     List<Alcohol> newproduct(); //신제품
-
 
     List<Alcohol> findByMaincategory(String maincategory); // 대분류로 주류 검색하기
 

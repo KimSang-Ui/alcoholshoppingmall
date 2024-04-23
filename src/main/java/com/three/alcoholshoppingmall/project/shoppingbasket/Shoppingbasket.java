@@ -1,4 +1,4 @@
-package com.three.alcoholshoppingmall.project.purchase;
+package com.three.alcoholshoppingmall.project.shoppingbasket;
 
 
 import io.swagger.v3.oas.annotations.media.Schema;
