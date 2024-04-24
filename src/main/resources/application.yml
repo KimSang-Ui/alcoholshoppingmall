@@ -1,31 +1,53 @@
+
 spring :
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+<<<<<<< HEAD
 <<<<<<< HEAD
 #    url: jdbc:mysql://mysql.hellomh.site:10100/alcoholfree?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
     url: jdbc:mysql://localhost:3306/mh?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
 =======
     url: jdbc:mysql://localhost:3306/alcoholfree?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
 >>>>>>> e6a77ee7b0b150c945f28e4cf54460655637f89c
+=======
+
+    url: jdbc:mysql://localhost:3306/alcoholfree?useSSL=false&characterEncoding=UTF-8
+
+>>>>>>> d85a169e0b589f1ce29eb65dc3d8a308032fcedb
     username: root
     password: 1234
+
 
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     generate-ddl: true
     show-sql: true
     properties:
       hibernate:
         format_sql: true
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d85a169e0b589f1ce29eb65dc3d8a308032fcedb
 #  sql:
 #    init:
 #      mode: always
 
+<<<<<<< HEAD
 token:
   jwt:
     secret: asdasdsadasdsadsadsasdadasssdsaadsasddasdasdasadsdsa
+=======
+
+server:
+  port: 8089
+
+
+
+
+>>>>>>> d85a169e0b589f1ce29eb65dc3d8a308032fcedb

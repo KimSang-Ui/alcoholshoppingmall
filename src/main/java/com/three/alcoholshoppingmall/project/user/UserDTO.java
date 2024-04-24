@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 
+<<<<<<< HEAD:src/main/java/com/three/alcoholshoppingmall/project/user/UserDto.java
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +15,13 @@ import org.hibernate.annotations.DynamicInsert;
 @DynamicInsert
 @Schema(description = "user 테이블에 대한 내용입니다.")
 public class UserDto {
+=======
+    @Getter
+    @Setter
+    @ToString
+    @Schema(description = "user 테이블에 대한 내용입니다.")
+    public class UserDTO {
+>>>>>>> d85a169e0b589f1ce29eb65dc3d8a308032fcedb:src/main/java/com/three/alcoholshoppingmall/project/user/UserDTO.java
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(title = "생성 번호", description = "table에서 자동으로 생성되는 칼럼입니다.")
@@ -51,6 +59,12 @@ public class UserDto {
     @Pattern(regexp="^(010)([0-9]{4})([0-9]{4})", message="올바른 휴대폰 번호를 입력하세요.")
     private String phone;
 
+<<<<<<< HEAD:src/main/java/com/three/alcoholshoppingmall/project/user/UserDto.java
     @Schema(title = "withdraw", description = "회원의 탈퇴 입니다.")
     private WithdrawStatus withdrawStatus;
 }
+=======
+
+    }
+
+>>>>>>> d85a169e0b589f1ce29eb65dc3d8a308032fcedb:src/main/java/com/three/alcoholshoppingmall/project/user/UserDTO.java

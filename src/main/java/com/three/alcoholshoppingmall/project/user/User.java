@@ -72,5 +72,3 @@ public class User {
     @UpdateTimestamp
     private LocalDate modifiedDate;
 }
-
-
