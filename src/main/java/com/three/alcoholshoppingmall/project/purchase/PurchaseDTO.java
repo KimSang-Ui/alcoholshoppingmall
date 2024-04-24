@@ -1,11 +1,7 @@
 package com.three.alcoholshoppingmall.project.purchase;
 
 
-<<<<<<< HEAD
-import com.three.alcoholshoppingmall.project.my.Division;
-=======
 import com.three.alcoholshoppingmall.project.market.Ordertype;
->>>>>>> main
 import com.three.alcoholshoppingmall.project.user.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -33,11 +29,7 @@ public class PurchaseDTO {
 
     private String marketname;
 
-<<<<<<< HEAD
-    private OrderType orderType;
-=======
     private Ordertype ordertype;
->>>>>>> main
 
     private int price;
 

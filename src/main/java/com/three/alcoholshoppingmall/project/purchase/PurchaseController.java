@@ -1,6 +1,5 @@
 package com.three.alcoholshoppingmall.project.purchase;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -17,35 +16,39 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/purchase")
-@Tag(name = "purchase", description = "구매내역 페이지 입니다.")
+@Tag(name = "purchase", description = "구매 페이지 입니다.")
 public class PurchaseController {
 
-private final PurchaseService purchaseService;
+
+    private final PurchaseServicce purchaseServicce;
+
 
     @PostMapping("/pickup")
     @Operation(summary = "구매내역 중 픽업 보기")
     public ResponseEntity<List<Purchase>> PICKUP(@Valid @RequestBody PurchaseDTO purchaseDTO) {
-        List<Purchase> list = purchaseService.PICKUPlist(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
+        List<Purchase> list = purchaseServicce.PICKUPlist(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+
     @PostMapping("/delivery")
     @Operation(summary = "구매내역 중 배달 보기")
     public ResponseEntity<List<Purchase>> DELIVERY(@Valid @RequestBody PurchaseDTO purchaseDTO) {
-        List<Purchase> list = purchaseService.DELIVERYlist(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
+        List<Purchase> list = purchaseServicce.DELIVERYlist(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @PostMapping("/pickuplimt")
     @Operation(summary = "구매내역중 픽업 최근 5개만")
-    public ResponseEntity<List<Purchase>>  PICKUPLIMT(@RequestBody PurchaseDTO purchaseDTO) {
-        List<Purchase> list = purchaseService.PICKUPlimt(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
+    public ResponseEntity<List<Purchase>> PICKUPLIMT(@RequestBody PurchaseDTO purchaseDTO) {
+        List<Purchase> list = purchaseServicce.PICKUPlimt(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
     @PostMapping("/deliverylimt")
     @Operation(summary = "구매내역중 배달 최근 5개만")
-    public ResponseEntity<List<Purchase>>  DELIVERYLIMT(@RequestBody PurchaseDTO purchaseDTO) {
-        List<Purchase> list = purchaseService.DELIVERYLIMTlimt(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
+    public ResponseEntity<List<Purchase>> DELIVERYLIMT(@RequestBody PurchaseDTO purchaseDTO) {
+        List<Purchase> list = purchaseServicce.DELIVERYLIMTlimt(purchaseDTO.getEmail(), purchaseDTO.getOrdertype());
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
+
 }

@@ -6,6 +6,7 @@ import com.three.alcoholshoppingmall.project.purchase.PurchaseDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/main")
@@ -22,6 +24,7 @@ import java.util.List;
 public class AlcoholController {
 
     private final AlcoholService alcoholService;
+
 
     @PostMapping("/mainpage")
     @Operation(summary = "메인 페이지 정보")

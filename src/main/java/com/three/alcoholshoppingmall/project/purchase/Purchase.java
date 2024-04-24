@@ -51,4 +51,7 @@ public class Purchase {
     @Schema(title = "OrderNumber", description = "구매자의 주문번호 입니다.")
     private String OrderNumber;
 
+    @Schema(title = "amount", description = "해당 물품의 구매 수량입니다.")
+    private  int amount;
+
 }

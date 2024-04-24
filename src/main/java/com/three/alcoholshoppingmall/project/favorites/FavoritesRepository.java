@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface FavoritesRepository extends JpaRepository<Favorites, Long> {
@@ -15,5 +16,8 @@ public interface FavoritesRepository extends JpaRepository<Favorites, Long> {
     @Query(value = "SELECT * FROM favorites WHERE email = :email", nativeQuery = true)
     List<Favorites> MyFavorites(String email);
 
+    Optional<Favorites> findByEmailAndName(String email, String name);
+
+    List<Favorites> deleteByEmailAndAndName(String email, String name);
 
 }

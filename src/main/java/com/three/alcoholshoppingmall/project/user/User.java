@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ public class User {
     @Schema(title = "생성 번호", description = "table에서 자동으로 생성되는 칼럼입니다.")
     private Long id;
 
+    @Column(unique = true)
     @Schema(title = "email", description = "회원의 email입니다.")
     private String email;
 
@@ -37,29 +39,16 @@ public class User {
     private String lastaddress;
 
     @Schema(title = "gender", description = "회원의 성별 입니다.")
-<<<<<<< HEAD
-    private Gender gender;
-
-    @Schema(title = "birthdate", description = "회원의 생년월일 입니다.")
-
-=======
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @Schema(title = "birthdate", description = "회원의 생년월일 입니다.")
->>>>>>> main
     private int birthdate;
 
     @Schema(title = "phone", description = "회원의 전화번호 입니다.")
     private String phone;
 
     @Schema(title = "withdraw", description = "회원의 탈퇴 입니다.")
-<<<<<<< HEAD
-    private WithdrawStatus withdrawStatus;
-
-
-}
-=======
     @Enumerated(EnumType.STRING)
     private WithdrawStatus withdrawStatus;
 
@@ -69,6 +58,3 @@ public class User {
     @Schema(title = "modifiedDate", description = "회원 정보수정일자 입니다.")
     private LocalDate modifiedDate;
 }
-
-
->>>>>>> main

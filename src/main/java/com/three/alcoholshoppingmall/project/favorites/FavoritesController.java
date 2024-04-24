@@ -16,24 +16,25 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/favorites")
-@Tag(name = "favorites", description = "줄겨찾기 페이지 입니다.")
+@Tag(name = "favorites", description = "즐겨찾기 페이지 입니다.")
 public class FavoritesController {
 
 private final FavoritesService favoritesService;
-
-    @PostMapping(" ")
+    @PostMapping("")
     @Operation(summary = "즐겨찾기 목록")
-    public ResponseEntity<List<Favorites>> FavoritesList(@RequestBody Favorites favorites){
+    public ResponseEntity<List<Favorites>> FavoritesList(@RequestBody FavoritesDTO favoritesDTO){
 
-        FavoritesDTO favoritesDTO = FavoritesDTO.builder()
-                .id(favorites.getId())
-                .email(favorites.getEmail())
-                .name(favorites.getName())
-                .build();
+        List<Favorites> list = favoritesService.Favoriteslist(favoritesDTO);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(list);
+    }
+    @PostMapping("/up")
+    @Operation(summary = "즐겨찾기 등록")
+    public ResponseEntity<List<Favorites>> Favorites(@RequestBody FavoritesDTO favoritesDTO) {
+
+
         List<Favorites> list = favoritesService.Favorites(favoritesDTO);
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
-
-
 }

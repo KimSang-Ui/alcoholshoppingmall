@@ -7,6 +7,7 @@ import com.three.alcoholshoppingmall.project.favorites.FavoritesDTO;
 import com.three.alcoholshoppingmall.project.favorites.FavoritesRepository;
 import com.three.alcoholshoppingmall.project.purchase.Purchase;
 import com.three.alcoholshoppingmall.project.purchase.PurchaseRepository;
+import com.three.alcoholshoppingmall.project.review.AlgorithmRepository;
 import com.three.alcoholshoppingmall.project.review.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
