@@ -1,7 +1,7 @@
 package com.three.alcoholshoppingmall.project.conf;
 
 import com.three.alcoholshoppingmall.project.user.User;
-import com.three.alcoholshoppingmall.project.user.token.TokenManager;
+import com.three.alcoholshoppingmall.project.login.token.TokenManager;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;

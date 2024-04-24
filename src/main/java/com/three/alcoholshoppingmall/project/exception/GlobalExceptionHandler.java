@@ -1,6 +1,9 @@
 package com.three.alcoholshoppingmall.project.exception;
 
+import jakarta.validation.ConstraintViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -16,5 +19,20 @@ public class GlobalExceptionHandler {
                 .errorDateTime(LocalDateTime.now())
                 .build();
         return ResponseEntity.status(e.getErrorCode().getHttpStatus()).body(errorReponse);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<String> methodArgumentNotValidException(MethodArgumentNotValidException e){
+
+        if (e.getBindingResult().getFieldError().getField().equals("email")){
+            return ResponseEntity.status(e.getStatusCode()).body(e.getFieldError().getDefaultMessage());
+        } else if (e.getBindingResult().getFieldError().getField().equals("password")){
+            return ResponseEntity.status(e.getStatusCode()).body(e.getFieldError().getDefaultMessage());
+        } else if (e.getBindingResult().getFieldError().getField().equals("birthdate")){
+            return ResponseEntity.status(e.getStatusCode()).body(e.getFieldError().getDefaultMessage());
+        } else if (e.getBindingResult().getFieldError().getField().equals("phone")) {
+            return ResponseEntity.status(e.getStatusCode()).body(e.getFieldError().getDefaultMessage());
+        }
+        return ResponseEntity.status(e.getStatusCode()).body(e.getFieldError().getDefaultMessage());
     }
 }

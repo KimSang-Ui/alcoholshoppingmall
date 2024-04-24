@@ -1,7 +1,7 @@
 spring :
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/alcoholfree?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/alcoholfree?useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: root
     password: 1234
 
@@ -10,7 +10,7 @@ spring :
     database-platform: org.hibernate.dialect.MySQLDialect
     defer-datasource-initialization: true
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
     generate-ddl: true
     show-sql: true
     properties:

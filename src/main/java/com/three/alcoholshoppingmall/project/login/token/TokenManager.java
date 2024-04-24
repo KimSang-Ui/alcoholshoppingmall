@@ -1,4 +1,4 @@
-package com.three.alcoholshoppingmall.project.user.token;
+package com.three.alcoholshoppingmall.project.login.token;
 
 import com.three.alcoholshoppingmall.project.user.User;
 import io.jsonwebtoken.Claims;
@@ -29,7 +29,6 @@ public class TokenManager {
     }
 
     public Jws<Claims> validateToken(String token){
-        System.out.println("9999999999999999");
         Jws<Claims> jws = Jwts.parser().setSigningKey(hmacShaKeyFor(mykey.getBytes()))
                 .build()
                 .parseClaimsJws(token);

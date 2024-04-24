@@ -1,7 +1,7 @@
-package com.three.alcoholshoppingmall.project.user.kakao;
+package com.three.alcoholshoppingmall.project.login.kakao;
 
 
-import com.three.alcoholshoppingmall.project.user.token.Token;
+import com.three.alcoholshoppingmall.project.login.token.Token;
 import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

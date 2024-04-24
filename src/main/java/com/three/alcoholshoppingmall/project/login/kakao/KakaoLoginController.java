@@ -1,9 +1,7 @@
-package com.three.alcoholshoppingmall.project.user.kakao;
+package com.three.alcoholshoppingmall.project.login.kakao;
 
 
-import com.three.alcoholshoppingmall.project.user.User;
-import com.three.alcoholshoppingmall.project.user.token.Token;
-import jakarta.servlet.http.HttpServletRequest;
+import com.three.alcoholshoppingmall.project.login.token.Token;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

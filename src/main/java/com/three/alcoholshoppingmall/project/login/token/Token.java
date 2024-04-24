@@ -1,4 +1,4 @@
-package com.three.alcoholshoppingmall.project.user.token;
+package com.three.alcoholshoppingmall.project.login.token;
 
 
 import lombok.AllArgsConstructor;
