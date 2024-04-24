@@ -48,15 +48,23 @@ public class SearchController {
         List<Alcohol> list = alcoholRepository.findByMaincategory(alcoholDto.getMaincategory());
         return list;
     }
-
-    @PostMapping("/mycustom")
-    @Operation(summary = "대분류와 소분류로 검색, .", description = "대분류와 소분류 db 내용과 일치 시 검색")
-    public List<Alcohol> selectByMyCustom(@RequestBody AlcoholDto alcoholDto) {
-        List<Alcohol> list = alcoholRepository
-                .findByMyCustom(alcoholDto.getMaincategory(),
-                        alcoholDto.getSubcategory());
-        return list;
+    //영웅씨 이거 필요해서 잠깐 추가했어요
+    @PostMapping("/subcategory")
+    @Operation(summary = "소분류 검색입니다.", description = "소분류 주류 검색")
+    public List<Alcohol> selectbySubcategory(@RequestBody AlcoholDto alcoholDto){
+        List<Alcohol>list = alcoholRepository.findBySubcategory(alcoholDto.getSubcategory());
+            return list;
     }
+
+
+//    @PostMapping("/mycustom")
+//    @Operation(summary = "대분류와 소분류로 검색, .", description = "대분류와 소분류 db 내용과 일치 시 검색")
+//    public List<Alcohol> selectByMyCustom(@RequestBody AlcoholDto alcoholDto) {
+//        List<Alcohol> list = alcoholRepository
+//                .findByMyCustom(alcoholDto.getMaincategory(),
+//                        alcoholDto.getSubcategory());
+//        return list;
+//    }
 
     @PostMapping("/name")
     @Operation(summary = "이름으로 검색, 검색을 완료하지 않아도 내용이 나오게 만들었습니다.", description = "이름으로 주류 검색")
@@ -65,12 +73,12 @@ public class SearchController {
         return list;
     }
 
-    @PostMapping("/selectSubcategory")
-    @Operation(summary = "대분류를 통해 소분류를 검색합니다.", description = "대분류를 통해 소분류를 검색")
-    public List<String> selectSubcategory(@RequestBody AlcoholDto alcoholDto) {
-        List<String> list = alcoholRepository.findSubcategoryByMaincategory(alcoholDto.getMaincategory());
-        return list;
-    }
+//    @PostMapping("/selectSubcategory")
+//    @Operation(summary = "대분류를 통해 소분류를 검색합니다.", description = "대분류를 통해 소분류를 검색")
+//    public List<String> selectSubcategory(@RequestBody AlcoholDto alcoholDto) {
+//        List<String> list = alcoholRepository.findSubcategoryByMaincategory(alcoholDto.getMaincategory());
+//        return list;
+//    }
 
 
 }

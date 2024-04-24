@@ -149,4 +149,6 @@ public interface AlcoholRepository extends JpaRepository<Alcohol, Long> {
             "GROUP BY a.id " +
             "ORDER BY COALESCE(MIN(b.price), 0) ASC, a.id ASC", nativeQuery = true)
     List<Integer> minreviewCount();
+
+    List<Alcohol> findBySubcategory(String subcategory);
 }

@@ -34,9 +34,9 @@ public class AlcoholController {
 
     @PostMapping("/detail")
     @Operation(summary = "상세 페이지 정보")
-    public ResponseEntity<List<DetailInformation>> Detail(@RequestBody Alcohol alcohol){
+    public ResponseEntity<List<DetailInformation>> Detail(@RequestBody AlcoholDto alcoholDto){
 
-        List<DetailInformation> list = alcoholService.DetailPage(alcohol.getName());
+        List<DetailInformation> list = alcoholService.DetailPage(alcoholDto.getName());
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }

@@ -20,9 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AlcoholService {
 
-
     private final AlcoholRepository alcoholRepository;
-    private final FavoritesRepository favoritesRepository;
     private final ReviewRepository reviewRepository;
     private final AlgorithmRepository algorithmRepository;
     private final PurchaseRepository purchaseRepository;

@@ -30,9 +30,9 @@ public class EventController {
     }
     @PostMapping("/mostcategory")
     @Operation(summary = "주간 많이 팔린 술 카테고리별")
-    public ResponseEntity<List<Alcohol>> MostCategory(@RequestBody Alcohol alcohol){
+    public ResponseEntity<List<Alcohol>> MostCategory(@RequestBody AlcoholDto alcoholDto){
 
-        List<Alcohol> list = eventservice.Mostcategory(alcohol.getMaincategory());
+        List<Alcohol> list = eventservice.Mostcategory(alcoholDto.getMaincategory());
 
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
