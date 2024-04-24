@@ -10,8 +10,6 @@ public enum ErrorCode {
     // 검색 에러코드
     NOTFOUNDALCOHOL(HttpStatus.NOT_FOUND, "NOTSELECT", "조회한 술이 존재하지 않습니다.");
 
-
-
     private HttpStatus httpStatus;
     private String errorCode;
     private String message;

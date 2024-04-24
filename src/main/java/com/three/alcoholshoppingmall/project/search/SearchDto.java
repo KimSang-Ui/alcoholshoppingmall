@@ -1,6 +1,5 @@
-package com.three.alcoholshoppingmall.project.serch;
+package com.three.alcoholshoppingmall.project.search;
 
-import com.three.alcoholshoppingmall.project.alcohol.Alcohol;
 import com.three.alcoholshoppingmall.project.user.User;
 import lombok.*;
 
@@ -12,7 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 public class SearchDto {
 
-    private Alcohol alcohol;
+    private Long id;
+
 
     private String searchcontents;
 

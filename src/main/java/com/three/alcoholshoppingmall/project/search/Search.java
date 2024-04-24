@@ -1,16 +1,17 @@
-package com.three.alcoholshoppingmall.project.serch;
+package com.three.alcoholshoppingmall.project.search;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.three.alcoholshoppingmall.project.alcohol.Alcohol;
 import com.three.alcoholshoppingmall.project.user.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "search")
 @Schema(description = "search 테이블에 대한 내용입니다.")
 public class Search {
