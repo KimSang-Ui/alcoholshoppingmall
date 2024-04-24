@@ -28,7 +28,6 @@ public class ReviewServicce {
             Review existingReview = check.get();
             existingReview.setWriting(reviewDTO.getWriting());
             existingReview.setGrade(reviewDTO.getGrade());
-            existingReview.setMarketname(reviewDTO.getMarketname());
             existingReview.setPicture(reviewDTO.getPicture());
             Review updatedReview = reviewRepository.save(existingReview);
             list.add(updatedReview);
