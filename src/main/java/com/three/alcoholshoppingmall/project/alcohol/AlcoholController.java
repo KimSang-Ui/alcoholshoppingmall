@@ -41,6 +41,7 @@ public class AlcoholController {
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
+
     @PostMapping("/pop")
     @Operation(summary = "인기 정렬")
     public ResponseEntity<List<DetailInformation>> Pop(){
@@ -54,6 +55,7 @@ public class AlcoholController {
     public ResponseEntity<List<DetailInformation>> Max(){
         String Type = "최고";
         List<DetailInformation> list = alcoholService.SortType(Type);
+
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }

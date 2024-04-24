@@ -6,13 +6,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/favorites")
+
 @Tag(name = "favorites", description = "즐겨찾기 페이지 입니다.")
 public class FavoritesController {
 
@@ -29,10 +32,12 @@ private final FavoritesService favoritesService;
     @Operation(summary = "즐겨찾기 등록")
     public ResponseEntity<List<Favorites>> Favorites(@RequestBody FavoritesDTO favoritesDTO) {
 
+
         List<Favorites> list = favoritesService.Favorites(favoritesDTO);
 
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
+
     @DeleteMapping("")
     @Operation(summary = "즐겨찾기 삭제")
     public ResponseEntity<List<Favorites>> FavoritesDelete(@RequestBody FavoritesDTO favoritesDTO) {
@@ -42,5 +47,5 @@ private final FavoritesService favoritesService;
         return  ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-    
+
 }

@@ -1,17 +1,20 @@
 package com.three.alcoholshoppingmall.project.review;
 
 
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+
 @Service
 @RequiredArgsConstructor
 public class ReviewServicce {
 
     private final ReviewRepository reviewRepository;
+
 
     public List<Review> Reviewlist(String email) {
         List<Review> list = reviewRepository.findByEmail(email);
@@ -59,6 +62,7 @@ public class ReviewServicce {
     }
 
     }
+
 
 
 

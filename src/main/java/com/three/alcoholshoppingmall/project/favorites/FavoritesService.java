@@ -1,6 +1,6 @@
 package com.three.alcoholshoppingmall.project.favorites;
 
-import com.three.alcoholshoppingmall.project.purchase.Purchase;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,11 +10,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
 public class FavoritesService {
 
     private final FavoritesRepository favoritesFRepository;
+
 
     public List<Favorites> Favoriteslist(FavoritesDTO favoritesDTO) {
 
@@ -22,6 +24,7 @@ public class FavoritesService {
 
         return list;
     }
+
     @Transactional
     public List<Favorites> Favorites(FavoritesDTO favoritesDTO) {
         Optional<Favorites> favor = favoritesFRepository.findByEmailAndName(favoritesDTO.getEmail(), favoritesDTO.getName());
@@ -49,4 +52,5 @@ public class FavoritesService {
         return null;
     }
 }
+
 

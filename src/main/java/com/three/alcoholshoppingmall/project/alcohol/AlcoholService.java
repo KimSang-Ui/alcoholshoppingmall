@@ -151,11 +151,13 @@ public class AlcoholService {
         Optional<Purchase> check = purchaseRepository.findByEmail(email);
 
         if (check.isPresent()) {
+
             String aroma = algorithmRepository.Aroma(email);
             String taste = algorithmRepository.Taste(email);
             String finish = algorithmRepository.Finish(email);
 
             List<Alcohol> list = algorithmRepository.personalalgorithm( aroma, taste, finish);
+
 
             return list;
         } else {

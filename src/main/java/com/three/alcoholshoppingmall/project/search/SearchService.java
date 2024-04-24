@@ -36,9 +36,6 @@ public class SearchService {
                     search.setSearchcontents(searchDto.getSearchcontents());
                     searchRepository.save(search);
 
-
-                    // 유효한 사용자 이메일을 찾을 수 없는 경우에 대한 처리
-
                 }
         return list;
     }
@@ -51,20 +48,8 @@ public class SearchService {
             return list;
         }
     }
-
-
-
-
-
     }
 
-
-//
-//    public List<Search> recentSearch(String email) {
-//        List<Search> list = searchRepository.recentSearch(email);
-//        return list;
-//    }
-//}
 
 
 
