@@ -18,7 +18,6 @@ public class SearchService {
     public List<Alcohol> saveSearchResults(List<Alcohol> searchResults) {
         for (Alcohol alcohol : searchResults) {
             Search search = new Search();
-            search.setAlcohol(alcohol);
             searchRepository.save(search);
         }
         return searchResults;

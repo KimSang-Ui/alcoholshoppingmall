@@ -32,7 +32,6 @@ public class SearchController {
             list.stream().forEach(alcohol -> {
                 Search search = new Search();
                 search.setSearchcontents(alcoholDto.getName());
-                search.setAlcohol(alcohol);
                 searchRepository.save(search);
             });
 

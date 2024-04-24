@@ -18,5 +18,4 @@ public class SearchDto {
 
     private User user;
 
-    //email 우쨰 쓸까? 유저에서 가져와야겠네
 }
